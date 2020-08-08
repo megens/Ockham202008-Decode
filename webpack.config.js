@@ -1,9 +1,8 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const InjectPlugin = require('webpack-inject-plugin').default;
-const path = require("path")
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const InjectPlugin = require("webpack-inject-plugin").default;
+const path = require("path");
 
-let pollServer =
-  `  let __init_status = false
+let pollServer = `  let __init_status = false
 
   let __init_magic_reload = async () => {
   
@@ -59,71 +58,84 @@ let pollServer =
   }
   
   __init_magic_reload()
-`
-
+`;
 
 module.exports = {
   watchOptions: {
     poll: true,
-    ignored: /node_modules/
+    ignored: /node_modules/,
   },
   mode: "development",
   devtool: "source-map",
   output: {
-    publicPath: '/',
+    publicPath: "/",
     path: path.join(__dirname, "build"),
   },
   devServer: {
     port: 3000,
     overlay: {
       warnings: true,
-      errors: true
+      errors: true,
     },
     historyApiFallback: {
-      index: '/index.html'
+      index: "/index.html",
     },
     contentBase: path.join(__dirname, "public"),
-    hot: true
+    hot: true,
   },
   module: {
-    rules: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: "babel-loader"
-      }
-    },
-    {
-      test: /\.html$/,
-      use: [{
-        loader: "html-loader"
-      }]
-    },
-    {
-      test: /\.css$/,
-      use: ["style-loader", "css-loader"]
-    },
-    {
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      use: [{
-        loader: "url-loader",
-        options: {
-          limit: 30000,
-          name: "[name].[ext]"
-        }
-      }]
-    }
-    ]
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        /*use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/[hash]-[name].[ext]",
+            },
+          },
+        ],
+        */
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 30000,
+              name: "[name].[ext]",
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./public/index.html",
-      filename: "./index.html"
+      filename: "./index.html",
     }),
   ],
 
   entry: {
     javascript: "./src/index.jsx",
-    html: "./public/index.html"
-  }
-}
+    html: "./public/index.html",
+  },
+};
