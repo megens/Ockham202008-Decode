@@ -1,20 +1,24 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
-const arcBlue = "#0B72B9";
-const arcOrange = "#FFBA60";
-const arcGrey = "#868686";
+//const ockhamBlue = "#0B72B9";
+//const ockhamBlue = "#4169E1";
+const ockhamBlue = "#4F81BD";
+//const ockhamRed = "#ff4040";
+const ockhamRed = "#E32F2B";
+const ockhamGrey = "#868686";
+const ockhamGreen = "#4caf50";
 
 export default createMuiTheme({
   palette: {
     common: {
-      blue: arcBlue,
-      orange: arcOrange,
+      blue: ockhamBlue,
+      orange: ockhamRed,
     },
     primary: {
-      main: arcBlue,
+      main: ockhamBlue,
     },
     secondary: {
-      main: arcOrange,
+      main: ockhamRed,
     },
   },
   typography: {
@@ -22,37 +26,38 @@ export default createMuiTheme({
       fontFamily: "Raleway ",
       textTransform: "none",
       fontWeight: 700,
-      fontSize: "1rem",
+      fontSize: "1.25rem",
       color: "white",
     },
     estimate: {
-      fontFamily: "Pacifico",
-      fontSize: "1rem",
+      fontFamily: "Raleway",
       textTransform: "none",
+      fontWeight: 700,
+      fontSize: "1.25rem",
       color: "white",
     },
     h2: {
       fontFamily: "Raleway",
       fontWeight: 700,
       fontSize: "2.5rem",
-      color: `${arcBlue}`,
+      color: `${ockhamBlue}`,
       lineHeight: 1.5, // space between lines of text
     },
     h3: {
       fontFamily: "Pacifico",
       fontSize: "2.5rem",
-      color: arcBlue,
+      color: ockhamBlue,
     },
     h4: {
       fontFamily: "Raleway",
       fontSize: "1.75rem",
-      color: arcBlue,
+      color: ockhamBlue,
       fontWeight: 700,
     },
     subtitle1: {
       fontSize: "1.25rem",
       fontWeight: 300,
-      color: arcGrey,
+      color: ockhamGrey,
     },
     subtitle2: {
       color: "white",
@@ -61,12 +66,12 @@ export default createMuiTheme({
     },
     body1: {
       fontSize: "1.25rem",
-      color: arcGrey,
+      color: ockhamGrey,
       fontWeight: 300,
     },
     learnButton: {
-      borderColor: arcBlue,
-      color: arcBlue,
+      borderColor: ockhamBlue,
+      color: ockhamBlue,
       borderWidth: 2,
       textTransform: "none",
       borderRadius: 50,
@@ -79,22 +84,22 @@ export default createMuiTheme({
     MuiInputLabel: {
       // from Mui documentation ... color labels, etc. on InputLabels
       root: {
-        color: arcBlue,
+        color: ockhamBlue,
         fontSize: "1rem",
       },
     },
     MuiInput: {
       // to format the underline, which has a "before and during" state
       root: {
-        color: arcGrey,
+        color: ockhamGrey,
         fontWeight: 300,
       },
       underline: {
         "&:before": {
-          borderBottom: `2px solid ${arcBlue}`,
+          borderBottom: `2px solid ${ockhamBlue}`,
         },
         "&:hover:not($disabled):not($focused):not($error):before": {
-          borderBottom: `3px solid ${arcBlue}`,
+          borderBottom: `3px solid ${ockhamBlue}`,
         },
       },
     },

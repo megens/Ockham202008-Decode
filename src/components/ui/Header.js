@@ -34,16 +34,17 @@ function ElevationScroll(props) {
 const useStyles = makeStyles((theme) => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    marginBottom: "3em",
+    marginBottom: "6.5em",
     [theme.breakpoints.down("md")]: {
-      marginBottom: "2em",
+      marginBottom: "4.5em",
     },
     [theme.breakpoints.down("xs")]: {
-      marginBottom: "1.25em",
+      marginBottom: "3.5em",
     },
   },
   logo: {
-    height: "8em",
+    height: "9em",
+    borderRadius: "10%",
     [theme.breakpoints.down("md")]: {
       height: "7em",
     },
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   logoContainer: {
-    padding: 0,
+    padding: "20px",
     "&:hover": {
       backgroundColor: "transparent",
     }, // avoids slight shade on hover
@@ -152,20 +153,20 @@ export default function Header(props) {
   const menuOptions = [
     { name: "Services", link: "/services", activeIndex: 1, selectedIndex: 0 },
     {
-      name: "Custom Software Development",
-      link: "/customsoftware",
+      name: "Pricing Models",
+      link: "/pricing",
       activeIndex: 1,
       selectedIndex: 1,
     },
     {
-      name: "iOS/Android App Development",
-      link: "/mobileapps",
+      name: "Reserving",
+      link: "/reserving",
       activeIndex: 1,
       selectedIndex: 2,
     },
     {
-      name: "Website Development",
-      link: "/websites",
+      name: "Reinsurance",
+      link: "/reinsurance",
       activeIndex: 1,
       selectedIndex: 3,
     },
@@ -181,9 +182,9 @@ export default function Header(props) {
       ariaPopup: anchorEl ? "true" : undefined,
       mouseOver: (event) => handleClick(event),
     },
-    { name: "The Revolution", link: "/revolution", activeIndex: 2 },
-    { name: "About Us", link: "/about", activeIndex: 3 },
-    { name: "Contact Us", link: "/contact", activeIndex: 4 },
+    { name: "Approach", link: "/approach", activeIndex: 2 },
+    { name: "Tools", link: "/tools", activeIndex: 3 },
+    { name: "Client Login", link: "/login", activeIndex: 4 },
     // leaving out Estimate route
   ];
 
@@ -204,7 +205,7 @@ export default function Header(props) {
             }
           }
           break;
-        case "/estimate":
+        case "/contact":
           props.setValue(5); // for refresh, the correct menu tab will be selected
           break;
         default:
@@ -237,13 +238,13 @@ export default function Header(props) {
 
       <Button
         component={Link}
-        to="/estimate"
+        to="/contact"
         variant="contained"
         color="secondary"
         className={classes.button}
         onClick={() => props.setValue(5)}
       >
-        Free Estimate
+        Contact
       </Button>
       <Menu
         id="simple-menu"
@@ -324,7 +325,7 @@ export default function Header(props) {
             selected={props.value === 5}
           >
             <ListItemText className={classes.drawerItem} disableTypography>
-              Free Estimate
+              Contact
             </ListItemText>
           </ListItem>
         </List>
@@ -354,7 +355,7 @@ export default function Header(props) {
               <img
                 alt="company logo"
                 className={classes.logo}
-                src="/assets/futureproofBlue.jpg"
+                src="/assets/ockhamLogo.png"
               />
             </Button>
             {matches ? drawer : tabs}
